@@ -61,7 +61,7 @@ void initServer(){
         exit(EXIT_FAILURE); 
     } 
     
-    printf("UAVProtocol Server:\n\tWaiting for new commands\n");
+    printf("Socket Server:\n\tWaiting for new commands\n");
     
     while(1)
     {
@@ -80,7 +80,7 @@ void initServer(){
         printf("Response to command %s: %s\n", command,result);
 
         //Wait for new connection
-        printf("UAVProtocol Server:\n\tWaiting for new commands\n");
+        printf("Socket Server:\n\tWaiting for new commands\n");
     }
 }
 
@@ -89,7 +89,6 @@ void initServer(){
 */
 
 void execCommand(char* command, char *result){
-    printf("\tEnter execCommand\n");
     char *token;
     if(command[2] != '_'){
          token = strtok_r(command, "\'", &command);
@@ -109,11 +108,11 @@ void execCommand(char* command, char *result){
             break;
         case 'x':
         case 'X':
-             sprintf(result, "X command\n");
-             break;
+            sprintf(result, "X command\n");
+            break;
          default:
-             sprintf(result, "Default command\n");
-             break;
+            sprintf(result, "Default command\n");
+            break;
 	}
 }
 
